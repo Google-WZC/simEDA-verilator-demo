@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "Vtop.h"      // 从 "top.v" 生成的类
+#include "VTOP.h"      // 从 "top.v" 生成的类
 #include "verilated.h" // Verilator 核心库
 #include "verilated_vcd_c.h"
 
@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
   Verilated::commandArgs(argc, argv);
 
   // 3. 实例化你的 Verilog 模块
-  Vtop *top = new Vtop;
+  VTOP *top = new VTOP;
   // Vtop *top = {0};
 
   // 初始化随机数种子
@@ -28,11 +28,11 @@ int main(int argc, char **argv) {
     i++;
     int a = rand() & 1;
     int b = rand() & 1;
-    top->a = a;
-    top->b = b;
+    top->A = a;
+    top->B = b;
     top->eval();
-    printf("a = %d, b = %d, f = %d\n", a, b, top->f);
-    assert(top->f == (a ^ b));
+    printf("a = %d, b = %d, f = %d\n", a, b, top->F);
+    assert(top->F == (a ^ b));
 
     tfp->dump(i);
   }
