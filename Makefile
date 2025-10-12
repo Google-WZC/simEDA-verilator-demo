@@ -1,5 +1,5 @@
 file := $(shell find . -name "*.v")
+TOP := "TOP"
 
 all:
-	# verilator --binary -j 0 -Wall $(file)
-	verilator -j 0 --cc $(file) --trace --exe sim_main.cpp
+	verilator -j 0 --cc $(file) --trace --exe sim_main.cpp --top-module $(TOP)

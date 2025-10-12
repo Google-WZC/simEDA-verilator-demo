@@ -1,4 +1,4 @@
-这是使用 verilator 仿真的单模块demo
+这是使用 verilator 仿真的 demo
 
 在当前目录
 
